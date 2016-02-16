@@ -23,10 +23,10 @@
 #define fd(x, y, z)             for(int x = y; x >= (int)z; --x)
 #define fa(X, it)				for(auto& it : X) //c++11
 #define fe(x, y, z)             for(int x = y; x <= (int)z; ++x)
-#define FOR(A, it)              for(typeof A.begin() it = A.begin(); it != A.end(); ++it)
-#define CFOR(A, it)				for(typeof A.cbegin() it = A.cbegin(); it != A.cend(); ++it) //c++11
-#define RFOR(A, it)             for(typeof A.rbegin(); it = A.rbegin(); it != A.rend(); ++it)
-#define CRFOR(A, it)			for(typeof A.crbegin() it = A.crbegin(); it != A.crend(); ++it) //c++11
+#define FOR(A, it)              for(typename A.begin() it = A.begin(); it != A.end(); ++it)
+#define CFOR(A, it)		for(typename A.cbegin() it = A.cbegin(); it != A.cend(); ++it) //c++11
+#define RFOR(A, it)             for(typename A.rbegin(); it = A.rbegin(); it != A.rend(); ++it)
+#define CRFOR(A, it)		for(typename A.crbegin() it = A.crbegin(); it != A.crend(); ++it) //c++11
 #define all(V)                  V.begin(), V.end()
 #define rall(V)                 V.rbegin(), V.rend()
 #define UNIQUE(V)               (V).resize(unique(all(V)) - (V).begin()) 
@@ -57,7 +57,6 @@
 #define critor                  const_reverse_iterator //c++11
 #define ritor                   reverse_iterator
     
-    
 using namespace::std;
     
 typedef long long ll;
@@ -82,12 +81,13 @@ template<typename T> inline void MAXI(T& a, T b){if(a > b) a=b;}
 template<typename T> inline void MINI(T& a, T b){if(a < b) a=b;}
 
 
-int n, cn,
+int n, cn = 1,
     dx[6] = {0, -1, -1, 0, 1, 1}, 
     dy[6] = {-1, -1, 0, 1, 1, 0};
 bool M[N][N], 
      visit[N][N], ok;
 char A[N];
+
 void dfs(int s1, int s2){
     visit[s1][s2] = true;
     f(i, 0, 6)
@@ -95,14 +95,12 @@ void dfs(int s1, int s2){
         int a = s1 + dy[i], b = s2 + dx[i];
         if(a >= 0 && a < n && b >= 0 && b < n && M[a][b] && !visit[a][b])
             dfs(a, b);
-
     }
 }
 
 
 int main(){
 
-    cn = 1;   
     while(scanf("%d%*c", &n), n)
     {
         f(i, 0, n){
@@ -112,20 +110,17 @@ int main(){
         }
         
         clr(visit, 0x0);
-        f(i, 0, n)
-            if(M[i][0] && !visit[i][0])
-                dfs(i, 0);
+        f(i, 0, n) if(M[i][0] && !visit[i][0]) dfs(i, 0);
     
         ok = false;
         f(i, 0, n)
-            if(visit[i][n-1])
-            {
+            if(visit[i][n-1]){
                 printf("%d W\n", cn++), ok = true;
                 break;
             }
         if(!ok) printf("%d B\n", cn++); 
     }
-    
-	return 0;
+   
+    return 0;
 }
 
