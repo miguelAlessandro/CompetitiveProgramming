@@ -17,8 +17,7 @@ int main(){
     while(t--){
         scanf("%u", &n);
         
-        suma = 0u;
-        A[0] = 0u;
+        suma = A[0] = 0u;
         fe(i, 1, n){
             scanf("%u", &A[i]);
             suma += A[i];
