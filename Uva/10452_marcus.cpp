@@ -6,8 +6,8 @@ using namespace::std;
 typedef pair<int, int> ii;
 
 const string S = "IEHOVA#";
-int di[8] = {0, -1, -1, -1, 0, 1, 1, 1},
-    dj[8] = {1, 1, 0, -1, -1, -1, 0, 1},
+int di[8] = {0, -1, 0},
+    dj[8] = {1, 0, -1},
     n, m, t, s1, s2, f1, f2;
 char M[N][N];
 string line;
@@ -22,7 +22,7 @@ void dfs(int s1, int s2, int times){
     if(times == 7)
         {f1 = s1; f2 = s2; return;}
 
-    for(int i = 0; i < 8; ++i){
+    for(int i = 0; i < 3; ++i){
         int a = s1 + di[i], b = s2 + dj[i];
         if(a >= 0 && a < n && b >= 0 && b < m && !visit[a][b] && M[a][b] == S[times]){
             padre[a][b] = ii(s1, s2);  
