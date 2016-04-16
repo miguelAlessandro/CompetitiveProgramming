@@ -11,7 +11,7 @@ vector<pair<int, int> > bridge;
 
 void dfs_complete(int n){
 
-    memset(visit, -1, sizeof visit);
+    memset(visit, -1, sizeof vis);
     bridge.clear();
     T = 0;
     for(int i = 0; i < n; ++i) 
