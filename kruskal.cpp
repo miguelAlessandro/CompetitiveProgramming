@@ -60,7 +60,7 @@ void kruskal(){
         iii q = Q.top();
         int u = q.second.first, v = q.second.second;
         if(not same_set(u, v))
-            unio_set(u, v);
+            union_set(u, v);
     }
 }
 
