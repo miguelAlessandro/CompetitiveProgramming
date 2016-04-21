@@ -2,8 +2,9 @@
 #include <cstdio>
 
 using namespace::std;
-const int N = 1<<6;
-bool adj[N][N], vis[N];
+const int aux = 2;
+const int N = 50;
+bool adj[N + aux][N + aux], vis[N + aux];
 int n, m, x, y, T;
 
 void dfs(const int x){
@@ -18,8 +19,7 @@ int main(){
     scanf("%d %d", &n, &m);
     for(int i = 1; i <= m; ++i){
         scanf("%d %d", &x, &y);
-        adj[x][y] = true;
-        adj[y][x] = true;
+        adj[x][y] = adj[y][x] = true;
     }
 
     for(int i = 1; i <= n; ++i)

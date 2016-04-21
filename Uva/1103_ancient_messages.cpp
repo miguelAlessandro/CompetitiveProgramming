@@ -8,8 +8,8 @@ using namespace::std;
 
 char L[10] = {'W', 'A', 'K', 'J', 'S', 'D'};
 int n, m, x, K;
-int M[210][51*16];
-bool vis[210][51*16];
+int M[210][51*4];
+bool vis[210][51*4];
 const int   di[8] = {0, -1, 0, 1},
             dj[8] = {1, 0, -1, 0};
 vector<int> solve;
