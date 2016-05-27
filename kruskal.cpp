@@ -57,7 +57,7 @@ int n, m;
 
 void kruskal(){
     while(not Q.empty()){
-        iii q = Q.top();
+        iii q = Q.top(); Q.pop();
         int u = q.second.first, v = q.second.second;
         if(not same_set(u, v))
             union_set(u, v);
