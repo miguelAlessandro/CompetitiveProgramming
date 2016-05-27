@@ -51,8 +51,7 @@ int main( void ){
         long long int w;
         scanf("%d %d %I64d", &a, &b, &w);
         --a, --b;
-        if(M[a].find(b) != M[a].end())
-        {
+        if(M[a].find(b) != M[a].end()){
             M[b][a] = min(M[b][a], w),
             M[a][b] = min(M[a][b], w);
         }

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdio>
+#include <vector>
 #include <utility>
 #define N 100005
 

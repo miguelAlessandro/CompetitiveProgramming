@@ -5,7 +5,7 @@ using namespace::std;
 
 int n;
 long long a, b;
-vector<complex<long long> > G;
+vector< complex<long long> > G;
 int v[N];
 
 bool compare(int a, int b){
@@ -19,8 +19,7 @@ int main(){
 
     cin >> n;
 
-    for(int i = 0; i < n; ++i)
-    {
+    for(int i = 0; i < n; ++i){
         cin >> a >> b;
         G.push_back(complex<long long>(a, b));
         v[i] = i;

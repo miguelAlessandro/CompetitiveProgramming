@@ -13,8 +13,7 @@ bool vis[maxV];
 
 void bfs(const int x){
     
-    queue<int> Q; 
-    Q.push(x);
+    queue<int> Q; Q.push(x);
     while(not Q.empty()){
         int q = Q.front(); Q.pop();
         vis[q] = true;

@@ -28,7 +28,7 @@ int main(){
             T = T + 1; 
         }
 
-    printf("%I64d\n", 1LL<<(n - T));
+    printf("%lld\n", 1LL<<(n - T));
 
     return 0;
 }

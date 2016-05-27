@@ -28,15 +28,12 @@ void dijkstra(int source)
 	priority_queue<nodo> Q;
 	d[source] = 0;
 	Q.push(nodo(source, 0));
-	while(!Q.empty())
-	{
+	while(!Q.empty()){
 		nodo q = Q.top(); Q.pop();
-		f(i, 0, G[q.v].size())
-		{
+		f(i, 0, G[q.v].size()){
 			nodo s = G[q.v][i];
 			int temp = d[q.v] + s.w;
-			if(temp < d[s.v])
-			{
+			if(temp < d[s.v]){
 				d[s.v] = temp;
 				Q.push(nodo(s.v, temp));
 			}
