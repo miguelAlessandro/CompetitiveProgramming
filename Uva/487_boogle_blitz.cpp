@@ -2,10 +2,11 @@
 using namespace::std;
 
 const int N = 22;
-int t, n,
     di[8] = {0, -1, -1, -1, 0, 1, 1, 1},
     dj[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+int t, n;
 char T[N][N];
+string S;
 vector<string> solve;
 
 bool compare(const string& a, const string& b){
@@ -35,7 +36,6 @@ int main(){
         scanf("%d", &n);
         for(int i = 0; i < n; ++i) scanf("%s", T[i]);
         
-        string S("");
         for(int i = 0; i < n; ++i)
             for(int j = 0; j < n; ++j){
                 S.push_back(T[i][j]);
