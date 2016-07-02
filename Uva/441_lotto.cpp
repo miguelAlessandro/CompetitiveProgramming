@@ -9,8 +9,8 @@ void backtracking(vector<int>& v, int it){
 
 	int l = v.size();
 	if(l == 6){ 
-		for(int j = 0; j < int(v.size()); ++j)
-			printf("%d%c", v[j], j+1 == int(v.size()) ? '\n' : ' ');
+		for(int j = 0; j < l; ++j)
+			printf("%d%c", v[j], j+1 == l ? '\n' : ' ');
 		return;		
 	}
 	
@@ -28,8 +28,7 @@ int main() {
 		s.resize(n);
 		for(int i = 0; i < n; ++i)
 			scanf("%d", &s[i]);
-	
-		sort(s.begin(), s.end());
+			
 		vector<int> v;
 		if(nc++) putchar('\n');
 		backtracking(v, 0);
