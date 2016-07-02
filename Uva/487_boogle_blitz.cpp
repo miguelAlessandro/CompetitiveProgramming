@@ -16,7 +16,7 @@ bool compare(const string& a, const string& b){
 
 int dfs(string& set, int s1, int s2){
 
-    if(times >= 3) solve.push_back(set);
+    if(set.size() >= 3) solve.push_back(set);
 
     f(i, 0, 8){
         int a = s1 + di[i], b = s2 + dj[i];
