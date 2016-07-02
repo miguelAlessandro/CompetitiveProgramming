@@ -33,7 +33,7 @@ int main(){
         solve.clear();
 
         scanf("%d", &n);
-        f(i, 0, n) scanf("%s", T[i]);
+        for(int i = 0; i < n; ++i) scanf("%s", T[i]);
         
         string S("");
         for(int i = 0; i < n; ++i)
