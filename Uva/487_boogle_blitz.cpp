@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#define f(x, y, z) for(int x = y; x < z; ++x)
 using namespace::std;
 
 const int N = 22;
@@ -17,7 +16,7 @@ int dfs(string& set, int s1, int s2){
 
     if(set.size() >= 3) solve.push_back(set);
 
-    f(i, 0, 8){
+    for(int i = 0; i < 8; ++i){
         int a = s1 + di[i], b = s2 + dj[i];
         if(a >= 0 && b >= 0 && a < n && b < n && set.back() < T[a][b]){
             set.push_back(T[a][b]);
@@ -37,8 +36,8 @@ int main(){
         f(i, 0, n) scanf("%s", T[i]);
         
         string S("");
-        f(i, 0, n)
-            f(j, 0, n){
+        for(int i = 0; i < n; ++i)
+            for(int j = 0; j < n; ++j){
                 S.push_back(T[i][j]);
                 dfs(S, i, j);
                 S.pop_back();
@@ -47,7 +46,7 @@ int main(){
         sort(solve.begin(), solve.end(), compare);        
         solve.resize(unique(solve.begin(), solve.end()) - solve.begin());
         
-        f(i, 0, int(solve.size())) puts(solve[i].c_str());   
+        for(int i = 0; i < solve.size(); ++i) puts(solve[i].c_str());   
         if(t) putchar('\n');
     }
 
