@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
-#define N 25
 #define f(x, y, z) for(int x = y; x < z; ++x)
-
 using namespace::std;
 
+const int N = 22;
 int t, n,
     di[8] = {0, -1, -1, -1, 0, 1, 1, 1},
     dj[8] = {1, 1, 0, -1, -1, -1, 0, 1};
-string T[N];
+char T[N][N];
 vector<string> solve;
 
 bool compare(const string& a, const string& b){
@@ -30,14 +29,12 @@ int dfs(string& set, int s1, int s2){
 
 int main(){
 
-    ios_base::sync_with_stdio(0);
-
-    cin >> t;
+    scanf("%d", &t);
     while(t--){
         solve.clear();
 
-        cin >> n;
-        f(i, 0, n) cin >> T[i];
+        scanf("%d", &n);
+        f(i, 0, n) scanf("%s", T[i]);
         
         string S("");
         f(i, 0, n)
@@ -50,8 +47,8 @@ int main(){
         sort(solve.begin(), solve.end(), compare);        
         solve.resize(unique(solve.begin(), solve.end()) - solve.begin());
         
-        f(i, 0, int(solve.size())) cout << solve[i] << '\n';   
-        if(t) cout << '\n';
+        f(i, 0, int(solve.size())) puts(solve[i]);   
+        if(t) putchar('\n');
     }
 
     return 0;
