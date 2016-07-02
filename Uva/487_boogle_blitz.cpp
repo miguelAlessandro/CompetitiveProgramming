@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace::std;
 
-const int N = 22;
+const int N = 22,
     di[8] = {0, -1, -1, -1, 0, 1, 1, 1},
     dj[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 int t, n;
