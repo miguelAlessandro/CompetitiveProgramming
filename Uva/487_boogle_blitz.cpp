@@ -14,15 +14,15 @@ bool compare(const string& a, const string& b){
     return a.size() < b .size() || a.size() == b.size() && a < b;
 }
 
-int dfs(string& set, int s1, int s2, int times){
+int dfs(string& set, int s1, int s2){
 
     if(times >= 3) solve.push_back(set);
 
     f(i, 0, 8){
         int a = s1 + di[i], b = s2 + dj[i];
-        if(a >= 0 && b >= 0 && a < n && b < n && set[times-1] < T[a][b]){
+        if(a >= 0 && b >= 0 && a < n && b < n && set.back() < T[a][b]){
             set.push_back(T[a][b]);
-            dfs(set, a, b, times + 1);
+            dfs(set, a, b);
             set.pop_back();
         }
     }
@@ -43,7 +43,7 @@ int main(){
         f(i, 0, n)
             f(j, 0, n){
                 S.push_back(T[i][j]);
-                dfs(S, i, j, 1);
+                dfs(S, i, j);
                 S.pop_back();
             }
 
