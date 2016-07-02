@@ -47,7 +47,7 @@ int main(){
         sort(solve.begin(), solve.end(), compare);        
         solve.resize(unique(solve.begin(), solve.end()) - solve.begin());
         
-        f(i, 0, int(solve.size())) puts(solve[i]);   
+        f(i, 0, int(solve.size())) puts(solve[i].c_str());   
         if(t) putchar('\n');
     }
 
