@@ -27,8 +27,9 @@ void dfs(int x, int P){
         if(u == P) continue;
         if(vis[u] == -1){
             dfs(u, x);
-            if(low[u] >= vis[x] and p != -1) cut_point.push_back(x);
             low[x] = min(low[x], low[u]);
+            
+            if(low[u] >= vis[x] and p != -1) cut_point.push_back(x);
             ++children;
         }
         else low[x] = min(low[x], vis[u]);
