@@ -20,18 +20,14 @@ void dfs_complete(int n){
 }
 
 void dfs(int x, int P){
-
     vis[x] = T;
-    low[x] = T;
-    T = T + 1;
+    low[x] = T++;
     int children = 0;
-    for(int i = 0; i < int(adj[x].size()); ++i){
-        int u = adj[x][i];
+    for(int u : adj[x]){
         if(u == P) continue;
         if(vis[u] == -1){
             dfs(u, x);
-            if(low[u] >= vis[x] and p != -1)
-                cut_point.push_back(x);
+            if(low[u] >= vis[x] and p != -1) cut_point.push_back(x);
             low[x] = min(low[x], low[u]);
             ++children;
         }
