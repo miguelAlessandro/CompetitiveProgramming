@@ -9,7 +9,7 @@ string A;
 struct Point{
   int x, y, p;
   bool operator<(const Point& p){return x < p.x or x == p.x and y < p.y;}
-  bool operator==(const Point& p){return x == p.x or y == p.y;}
+  bool operator==(const Point& p){return x == p.x and y == p.y;}
 } L[N];
 
 int main(){
