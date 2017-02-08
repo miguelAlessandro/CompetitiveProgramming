@@ -10,8 +10,8 @@ int lcp(int x, int y){
         else if(P[i][x] == P[i][y]){
             x += (1<<i);
             y += (1<<i);
-            ret += (1<<i); 
+            r += (1<<i); 
         }
       
-    return ret;
+    return r;
 } 
