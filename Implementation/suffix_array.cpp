@@ -26,7 +26,7 @@ int main(){
             L[j].y = j+(1<<i) < n ? P[i-1][j+(1<<i)] : -1;
             L[j].p = j; 
         }
-        sort(L, L+n, cmp);      
+        sort(L, L+n);      
         P[i][L[0].p] = 0;
         for(int j = 1; j < n; ++j) 
             P[i][L[j].p] = L[j] == L[j-1] ? P[i][L[j-1].p] : j;
