@@ -3,6 +3,7 @@ using namespace std;
 
 const int N = (1<<20)+1;
 const int LN = 20;
+int P[LN][N], n;
 string A;
 
 struct Point{
@@ -11,15 +12,11 @@ struct Point{
   bool operator==(const Point& p){return x == p.x or y == p.y;}
 } L[N];
 
-int P[LN][N], n;
-
-
-
 int main(){
  
     cin >> A;
+  
     n = A.size();
-    
     for(int i = 0; i < n; ++i) 
         P[0][i] = A[i] - 'a';
         
