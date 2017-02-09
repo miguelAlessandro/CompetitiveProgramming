@@ -22,15 +22,15 @@ int main(){
         
     for(int i = 0; (1<<i) < (n<<1); ++i){
         for (int j = 0; i < n; ++j){
-            L[j].x = P[i-1][j];
-            L[j].y = j+(1<<i) < n ? P[i-1][j+(1<<i)] : -1;
+            L[j].x = P[i][j];
+            L[j].y = j+(1<<i) < n ? P[i][j+(1<<i)] : -1;
             L[j].p = j; 
         }
         sort(L, L+n);      
-        P[i][L[0].p] = 0;
+        P[i+1][L[0].p] = 0;
         for(int cr = 0, j = 1; j < n; ++j){
             if(L[j] != L[j-1]) cr++; 
-            P[i][L[j].p] = cr;
+            P[i+1][L[j].p] = cr;
         }
      } 
       
