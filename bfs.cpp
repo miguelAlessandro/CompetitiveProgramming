@@ -1,80 +1,44 @@
 #include <iostream>
-#include <queue>
 #include <vector>
+#include <utility>
+using namespace std;
 
-using namespace::std;
+const int N = 10000;
 
-//para lista de adjacencia
-const int maxV = 100000;
-const int maxE = 100000;
 
-vector<int> adj[maxV];
-bool vis[maxV];
+void bfs(int x){
+	memset(dis, -1, sizeof dis); dis[x] = 0;
+	queue<int> Q; Q.push(x);
 
-void bfs(const int x){
-    
-    queue<int> Q; Q.push(x);
-    while(not Q.empty()){
-        int q = Q.front(); Q.pop();
-        vis[q] = true;
-        for(int i = 0; i < int(adj[q].size()); ++i)
-            if(not vis[adj[q][i]])
-                Q.push(adj[q][i]);
-    }
+	while(not Q.empty()){
+		int q = Q.front(); Q.pop();
+		for(auto v : adj[q])
+			if(dis[v] == -1){
+				dis[v] = dis[q]+1;	
+				Q.push(v);
+			}
+	}
 }
 
-int n, m;
+
+void bfs01(int x){
+	
+	memset(dis, -1, sizeof dis); dis[x] = 0;
+	deque<int> Q; Q.push_back(x);
+
+	while(not Q.empty()){
+		int q = Q.front(); Q.pop_front(); 
+		for(auto v : adj[q])
+			if(dis[v.first] == -1 or dis[v.first] > dis[q] + v.second){
+				dis[v.first] = dis[q]+v.second;
+				Q.push_back(v.first);
+			}
+	}
+}
 
 int main(){
 
-    
-    cin >> n >> m;
-    for(int i = 0; i < m; ++i){
-        int a, b;
-        cin >> a >> b;
-        --a; --b; //para usar los nodos de 0 a n-1
-        adj[a].push_back(b);
-        adj[b].push_back(a);
-    }
+		
 
-    bfs(0);
-
-    return 0;
-}
-
-//para matriz de adjacencia
-const int maxV = 1000;
-const int maxE = maxV*maxV;
-
-int adj[maxV][maxV];
-bool vis[maxV];
-
-void bfs(const int x, const int n){
-    
-    queue<int> Q; Q.push(x);
-    vis[x] = true;
-    while(not Q.empty()){
-        int q = Q.front(); Q.pop();
-        vis[q] = true;
-        for(int i = 0; i < n; ++i)
-            if(adj[q][i] and not vis[i])
-                Q.push(i);
-    }
-}
-
-int n, m;
-
-int main(){
-    
-    cin >> n >> m;
-    for(int i = 0; i < m; ++i){
-        int a, b;
-        cin >> a >> b;
-        --a; --b; //para usar los nodos de 0 a n-1
-        adj[a][b] = adj[b][a] = true;
-    }
-
-    bfs(0);
-
-    return 0;
+	return 0;
 }

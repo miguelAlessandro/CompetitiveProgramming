@@ -1,29 +1,25 @@
 #include <iostream>
-#include <cstdio>
 #include <set>
-#define N 105
+using namespace std;
 
-using namespace::std;
+int n, m;
+set<int> s;
 
-int n, m, k, a;
-set<int> S;
+int main(){
 
-int main( void ){
+	cin >> n >> m;
+	for(int x, i = 0; i < n; ++i){
+		cin >> x;
+		for(int y, j = 0; j < x; ++j){
+			cin >> y;
+			s.insert(y);
+		}	
+	}
+	
+	if(s.size() == m)
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
 
-    scanf("%d %d", &n, &m);
-    
-    for(int i = 0; i < n; i++){
-        scanf("%d", &k);
-        while(k--){
-            scanf("%d", &a);
-            S.insert(a);
-        }
-    }
-
-    if(S.size() == m)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
-
-    return 0;
+	return 0;
 }
