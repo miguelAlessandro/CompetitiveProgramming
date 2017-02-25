@@ -12,9 +12,9 @@ struct Bitset{
   int cardinal(){return __builtin_popcount(m);}
   bool operator==(const Bitset& X){return m == X.m;}
   bool operator==(const long long& X){return m == X;}
-  friend long long Union(const Bitset& X, const Bitset& Y){return X.m|Y.m;}
-  friend long long Intersect(const Bitset& X, const Bitset& Y){return X.m&Y.m;}
-  friend long long Xor(const Bitset& X, const Bitset& Y){return X.m^Y.m;}
+  friend Bitset Union(const Bitset& X, const Bitset& Y){return X.m|Y.m;}
+  friend Bitset Intersect(const Bitset& X, const Bitset& Y){return X.m&Y.m;}
+  friend Bitset Xor(const Bitset& X, const Bitset& Y){return X.m^Y.m;}
 };
 
 int main(){  
