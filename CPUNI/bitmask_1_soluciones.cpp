@@ -5,7 +5,7 @@ rpta:
 
 int neg(int x){return -(x < 0);}
 
-2. intercambie dos enteros x e y, se entiende que ahora x sera y y y sera el valor inicial de x. 
+2. intercambie dos enteros x e y, se entiende que ahora x sera y e y tendra el valor inicial de x. 
 rpta:
 
 void swap(int& x, int& y){
