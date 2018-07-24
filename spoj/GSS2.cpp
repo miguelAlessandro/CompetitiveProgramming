@@ -4,7 +4,7 @@ const int MAX_N = 1e5 + 10;
 struct Node 
 {
 	long long sum, lazy, sumH, lazyH;
-} st[MAX_N<<3];
+} st[MAX_N*4];
 int a[MAX_N];
 long long ans[MAX_N];
 int n, q;
@@ -19,15 +19,15 @@ void upd (int nx, long long x)
 void push (int nx) 
 {
 	Node& p = st[nx];
-	upd(nx<<1, p.lazyH);
-	upd(nx<<1, p.lazy - p.lazyH);	
-	upd(nx<<1|1, p.lazyH);
-	upd(nx<<1|1, p.lazy - p.lazyH);	
+	upd(2*nx, p.lazyH);
+	upd(2*nx, p.lazy - p.lazyH);	
+	upd(2*nx+1, p.lazyH);
+	upd(2*nx+1, p.lazy - p.lazyH);	
 	p.lazy = p.lazyH = 0;
+	assert(st[nx].lazy == 0 and st[nx].lazyH == 0);
 } 
 Node merge(Node p, Node q) {	
-	bool less = p.sumH < q.sumH;
-	return {less ? q.sum : p.sum, 0ll, less ? q.sumH : p.sumH , 0ll};
+	return {max(q.sum, p.sum), 0ll, max(q.sumH, p.sumH), 0ll};
 }
 void update(int a, int b, int c, int nx = 1, int l = 1, int r = n) 
 {
@@ -36,21 +36,21 @@ void update(int a, int b, int c, int nx = 1, int l = 1, int r = n)
 		upd(nx, c);	
 		return;
 	}
-	int mid = (l+r)>>1;
+	int mid = (l+r)/2;
 	push(nx);
-	update(a, b, c, nx<<1, l, mid);	
-	update(a, b, c, nx<<1|1, mid+1, r);
-	st[nx] = merge(st[nx<<1], st[nx<<1|1]);
+	update(a, b, c, 2*nx, l, mid);	
+	update(a, b, c, 2*nx+1, mid+1, r);
+	st[nx] = merge(st[2*nx], st[2*nx+1]);
 }
 long long query (int a, int b, int nx = 1, int l = 1, int r = n) 
 {
 	if (r < a or b < l) return 0;
 	if (a <= l and r <= b) return st[nx].sumH;
-	int mid = (l+r)>>1;
+	int mid = (l+r)/2;
 	push(nx);
-	long long L = query(a, b, nx<<1, l, mid);
-	long long R = query(a, b, nx<<1|1, mid+1, r);	
-	st[nx] = merge(st[nx<<1], st[nx<<1|1]);
+	long long L = query(a, b, 2*nx, l, mid);
+	long long R = query(a, b, 2*nx+1, mid+1, r);	
+	st[nx] = merge(st[2*nx], st[2*nx+1]);
 	return max(L, R);
 }
 
