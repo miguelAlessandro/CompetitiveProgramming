@@ -1,3 +1,19 @@
+/**	
+ *	CF834 Div2 D
+ *	@overview Separate the array into continuous 
+ * 	subarrays with maximum different elements in total
+ *
+ *	- solve dp[k][n]: answer with k groups and n elements. 
+ *	- dp[1][n] easy with sets.
+ *	- Keep the answers for a block less plus the amount 
+ *	of different items so far.
+ *	- this is possible with a segment tree plus lazy 
+ *	propagation taking into account that the last element 
+ *  adds a different one for all the answers starting from 
+ *	the last occurrence.
+ */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
