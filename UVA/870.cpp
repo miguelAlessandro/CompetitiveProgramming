@@ -1,3 +1,12 @@
+/**
+ *	UVA 870	
+ *	@overview calculate union area o rectangles
+ *	
+ *	coordinate compression -> grid compression
+ * 	all plane in nxn weight grid
+ * 	then, only use dfs. 
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 

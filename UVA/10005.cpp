@@ -1,3 +1,20 @@
+/**
+ *	UVA 10005
+ *	@overview see if any circle of radius R 
+ *  can contain a set of n points
+ *
+ * 	- I can always move the circle so that 
+ * 	it touches two points.
+ *	- calculate center in O(log n) with
+ * 
+ *	d = dist (P_i, P_j)
+ *	df = +- sqrt ((2R)^2 - d^2) / d
+ *		   		 | 1  -df| (P_j - P_i)
+ * 	P_i +  0.5 x | df	1|
+ *
+ * 	- brute force solution with center fix.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
