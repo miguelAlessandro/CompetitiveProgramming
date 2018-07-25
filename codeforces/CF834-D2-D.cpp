@@ -9,7 +9,7 @@
  *	of different items so far.
  *	- this is possible with a segment tree plus lazy 
  *	propagation taking into account that the last element 
- *  adds a different one for all the answers starting from 
+ *  	adds a different one for all the answers starting from 
  *	the last occurrence.
  */
 
