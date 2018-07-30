@@ -1,3 +1,22 @@
+/**
+ *	UVA 11090
+ *	@overview print mediam of minimum cycle
+ *	- suppose that solution is S, 
+ * 	then we do this binary searchable:
+ *		S = minimum (weight cycle / number of edges)
+ *		f (x) : S < x <- binary searchable function
+ *		-> suppose S = some cycle / k edges, then
+ *		-> some cycle < x * (k edges)
+ *		-> some cycle - x * (k edges) < 0
+ *		-> if we subtract x for all edge, 
+ *		then the above statement indicates that there is a
+ *		negative cycle in the modified graph. Any other 
+ *		cycle can only be less negative.
+ *	- final solution binary search + bellman ford for negative 
+ *	cycle detection.
+ */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 const int MAX_N = 55;
