@@ -3,7 +3,7 @@
  *	@overview minimum edge of directed graph with strong orientation
  *		
  *	# bridge always has its two directions
- *	# front edge of dfs tree too
+ *	# front edge of dfs tree is necesary
  *	# back edge of dfs tree only if its bridge
  *	# in other case front edge not is necesary
  */
