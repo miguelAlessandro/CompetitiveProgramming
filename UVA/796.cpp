@@ -1,3 +1,9 @@
+/**
+ *	UVA 796
+ *	@overview typical bridge problem
+ */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
