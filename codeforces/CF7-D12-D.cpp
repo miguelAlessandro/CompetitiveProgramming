@@ -3,7 +3,7 @@
  *  @find palindrome degre for all prefix (palindrome degre is defined: if s is empty, then PD = 0, else if 
  *  s es palindrome, PD(s) = 1 + min(PD(preffix of length |s|/2), PD(suffix of length |s|/2))
  *
- *  - hint: note than if s is palindromic, then PD(s) = 1 + PD(preffix of length |s|/2)
+ *  - hint: note than if s is palindrome, then PD(s) = 1 + PD(preffix of length |s|/2)
  */
 
 
