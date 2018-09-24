@@ -54,7 +54,6 @@ bool isPalindrome(int a, int b) {
 }
 
 int main() {
-
 	scanf("%s", s);
 	n = strlen(s);
 	int invp = ex(p, mod-2);
