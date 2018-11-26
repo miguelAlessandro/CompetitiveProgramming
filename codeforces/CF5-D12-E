@@ -1,0 +1,93 @@
+/**
+ *  E - Bindian Signalizing
+ *  =======================
+ *
+ *      @autor  Miguel Min\'i
+ *      @tag    sort, BIT, counting 
+ *      @idea   
+ *
+ *            - Traverse for all elements in sorted order. 
+ *            - for element count contribution for this element
+ *            - the contribution for this element:
+ *                - if element is greatest considere complete range
+ *                - in other case considere circular left greater element and right greater 
+ *            - then respond all active elements in contribution range for element
+ *            - before desactive this element.
+ */
+
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+const int maxn = 3e6 + 10;
+int L[maxn], R[maxn], a[maxn];
+int n;
+int ft[maxn];
+
+int add(stack<int>& s, int w) {
+	while (not s.empty() and a[s.top()] <= a[w]) s.pop(); 
+	int ans = -1;
+	if (not s.empty()) ans = s.top();
+	s.push(w);
+	return ans;
+}
+void update(int pos, int v) {
+	if (pos == 0) return;
+	while (pos < maxn) {
+		ft[pos] += v;
+		pos += pos&-pos;
+	}
+}
+int query(int pos) {
+	int ans = 0;
+	while (pos > 0) {
+		ans += ft[pos];
+		pos -= pos&-pos;
+	}
+	return ans;
+}
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", a+i);
+		a[n+n+i] = a[n+i] = a[i];
+	}
+	stack<int> s_left;
+	for (int i = 0; i < 3*n; ++i) {
+		L[i] = add(s_left, i);			
+	}
+	stack<int> s_right;
+	for (int i = 3*n-1; i >= 0; --i) {
+		R[i] = add(s_right, i);
+	}
+	vector<pair<int, int>> range(n);
+	for (int i = 0; i < n; ++i) {
+		if (R[n+i] - L[n+i] + 1 >= n or L[n+i] == -1) range[i] = {n, n+n-1};
+		else range[i] = {L[n+i], R[n+i]};
+	}
+	vector<int> o;
+	for (int i = 0; i < n; ++i) {
+		o.emplace_back(i);
+	}
+	sort(o.begin(), o.end(), [&](int x, int y) {
+		return a[x] < a[y];
+	});
+	for (int i = 0; i < n; ++i) {
+		update(i, 1);
+		update(i+n, 1);
+		update(i+n+n, 1);
+	}
+	long long ans = 0;
+	for (int i = 0; i < n; ++i) {	
+		int e = o[i];
+		ans += query(range[e].second) - query(range[e].first - 1) - 1;
+		
+		update(e, -1);
+		update(e+n, -1);
+		update(e+n+n, -1);
+	}
+	printf("%lld\n", ans);
+	return 0;
+}
