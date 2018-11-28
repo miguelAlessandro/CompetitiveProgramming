@@ -3,18 +3,18 @@
  *	==========
  * 
  *	@autor Miguel Min\'i
- *  @tag geometry, sweep line, function
+ *      @tag geometry, sweep line, function
  *	@idea
- *    - Note than the surface inducted by distance is a rhombus (for both points)
+ *              - Note than the surface inducted by distance is a rhombus (for both points)
  *		- also, you need the union of two rhombus for each point C, and intersect all those:
- *       #############\ /########################
- *       ##############C##########################
- *       #############/##\########################
- *        A #########/####\##################### B
- *       ############\###/########################
- *       #############\#/#########################
- *       #############/ \#########################
- *       ############/   \########################   
+ *              #############\ /#########################
+ *              ##############C##########################
+ *              #############/##\########################
+ *               A #########/####\##################### B
+ *              ############\###/########################
+ *              #############\#/#########################
+ *              #############/ \#########################
+ *              ############/   \########################   
  *
  *
  *		- they rhombus are symmetric to horizontal line A --- B
@@ -23,9 +23,9 @@
  *			#\     /###
  *			##\   /####
  *			###\ /#####
- *      ####C######      
+ *                      ####C######      
  *
- *	  - (consider right part) such than a right appear, the points:
+ *	        - (consider right part) such than a right appear, the points:
  *
  *                
  *                .     
