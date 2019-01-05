@@ -9,7 +9,7 @@
  *              dist((x1, y1), (x2, y2)) = max(|x1-x2|, |y1-y2|).[1]
  *              
  *            
- *            - let point be (x, y) and hiperplanes[2] H = [X - Y = x-y] and I = [X + Y = x+y]
+ *            - let point be (x, y) and hyperplanes[2] be  H = [X - Y = x-y] and I = [X + Y = x+y]
  *            then:
  *            
  *            for any point (x', y') in {(H+ U I+) U (H- U I-)}, 
@@ -44,7 +44,7 @@
  *                          return p.x < q.x or p.x == q.x and p.y < q.y;
  *                      };
  *                       
- *             - Traverse these and maintain in four Fenwick Trees and respond easily, for example: 
+ *             - Traverse these and maintain in four Fenwick Trees, respond easily, for example: 
  *             
  *                        suppose we stay in point (x, y), we traverse all less point for this moment
  *                        and if we want to respond for points in H+ U I+ then:                           
