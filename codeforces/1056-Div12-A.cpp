@@ -1,3 +1,13 @@
+/**
+ * Determine line
+ * @author Miguel Mini
+ * @tag ad-hoc
+ * @idea this is a simple ad-hoc problem
+ *
+ *
+ */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int cnt[102];
