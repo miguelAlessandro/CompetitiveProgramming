@@ -6,7 +6,7 @@
  * @tags geometry, coordinate-compression, dsu
  * @idea
  *		- it's necessary than the vertex of squares are vertex of input too.
- *		- I use coordinate compression to make easy union - find use.
+ *		- I use coordinate compression to make easy union - find using.
  *		- note than is necessary know if two points are horizontal or vertical connected.
  *		- finally check all possible square and verify edge existence.
  * 
