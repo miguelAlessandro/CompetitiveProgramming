@@ -1,3 +1,16 @@
+/**
+ *  Polyline SRM 244 div1 500
+ *  @author Miguel Mini
+ *  -------------------------
+ *  @tags geometry, optic
+ *  @idea
+ *        - the minimum distance going through a edge 
+ *        is the distance of reflection
+ *        - we need reflect two times the horizontal and 
+ *        vertical edges 
+ *        - two horizontal reflection generate -2b or +2b,
+ *        same to vertical.
+ */
 #include <bits/stdc++.h>
 using namespace std;
  
