@@ -72,7 +72,9 @@ la pregunta es: f(n-2) tiene que hacer dos veces esa tarea? claramente, no!
 
 Que tan importante es que f(n-2) no haga una tarea 2 veces o mas...?
 
-
+sumamente importante, eso quiere decir que calcular f(n) = es igual a la cantidad de estados que se visita..., por tanto, como
+para calcular f(n) solo necesito calcular f(n-1), f(n-2), ... y f(0) y cada uno se calcula una vez... entonces, la complejidad
+de calcular f(n) es O(n)... 
 
 #### uso practico:
 
