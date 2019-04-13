@@ -35,7 +35,13 @@ denotemos el tiempo de ejecucion asi:
   //pero sabemos que esto puede verse asi!:
   F(x) = A / (1 - x) + B / (r1 - x) + C / (r2 - x)
   //lo que nos quieres decir que 
-  T[n] = A + (B / r1) * r1 ^ -n + (C / r2) * r2 ^ -n
+  T[n] = A + (B * r2) * r2 ^ n + (C * r1) * r1 ^ n
   //en resumen T[n] es una funcion exponencial!
   //(usando conceptos de series de tiempo se puede llegar mas rapido con simple inspeccion)
+  // Una respuesta mas concreta es que T[n] = fibonacci(n + 2) - 1 (>:) trate de probarlo)
 ```
+
+Pero se puede hacer menos costoso? y sobretodo... sin perder precision?
+
+
+
