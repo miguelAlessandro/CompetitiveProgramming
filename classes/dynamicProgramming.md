@@ -64,6 +64,16 @@ int fibonacci(int n) {
 note que para este caso solo puedo guardar hasta 1e6... (que es muchisimo mas de lo que podria usando solo recursion).
 note tambien que esto necesariamente nos dara overflow... y es por eso que generalmente nos pediran respuestas modulares.
 
+#### como es que esto funciona?
+
+Tenemos que en nuestro primer algoritmo de fibonacci, al calcular f(n) necesito f(n-1) y f(n-2) y para calcular f(n-1) uso f(n-2) 
+tambien... Planteatelo asi, f(n-2) es un amigo de f(n) y f(n-1), donde f(n) y f(n-1) le piden que haga una misma tarea... 
+la pregunta es: f(n-2) tiene que hacer dos veces esa tarea? claramente, no!
+
+Que tan importante es que f(n-2) no haga una tarea 2 veces o mas...?
+
+
+
 #### uso practico:
 
 [10229 - Modular Fibonacci](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1170)
