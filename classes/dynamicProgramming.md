@@ -84,14 +84,15 @@ este tipo de funciones lineales generalmente tienen un ciclo proporcional al mod
 
 ```cpp
 const int maxN = 1e9;
-cout << 0 << " " << 1 << endl;
-for (int k = 1; k <= 20; ++k) {
-	int a[4] = {0, 1}; 
+cout << 0 << " " << 1 << endl; //para modulo 2^0, siempre es 0 la respuesta
+for (int k = 1; k <= 20; ++k) { //reviso para cada potencia
+	//solo llevo 4 numeros
+	int a[4] = {0, 1}; //inicializo los primeros dos 
 	for (int i = 2; i <= maxN; ++i) {
 		a[i&3] = a[(i+3)&3] + a[(i+2)&3];
-		a[i&3] &= (1<<k)-1;
-		if (a[i&3] == 1 and a[(i+3)&3] == 0) {
-			cout << k << " " << i-1 << endl;
+		a[i&3] &= (1<<k)-1; //saco modulo 2^k
+		if (a[i&3] == 1 and a[(i+3)&3] == 0) { //veo si los dos ultimos son 0, 1 (de ahi se repetira)
+			cout << k << " " << i-1 << endl; //encontre un ciclo!
 			break;	
 		}
 	}
