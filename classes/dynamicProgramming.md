@@ -126,4 +126,32 @@ m, longitud del ciclo
 20 1572864
 ```
 
-todos son menores a 1600000... 
+todos son menores a 1600000... Veamos el algoritmo modificando un poco nuestro codigo anterior
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1.6e6;
+int cycle[21] = 
+{1, 3, 6, 12, 24, 48, 96, 192, 384, 768, 1536,
+3072, 6144, 12288, 24576, 49152, 98304, 196608,
+393216, 786432, 1572864};
+
+int memo[21][maxN];
+bool check[21][maxN];
+int fibonacci(int m, int n) {
+	if (n == 0) return 0;
+	if (n == 1) return m!=0;
+	if (check[m][n]) return memo[m][n];
+	check[m][n] = 1;
+	return memo[m][n] = (fibonacci(m, n-1) + fibonacci(m, n-2)) & ((1<<m)-1);
+}
+
+int main() {
+	int n, m;
+	while (cin>>n>>m) {
+		cout << fibonacci(m, n % cycle[m]) << endl;
+	}
+	return 0;
+}
+```
