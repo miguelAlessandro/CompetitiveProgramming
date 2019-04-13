@@ -89,7 +89,7 @@ for (int k = 1; k <= 20; ++k) { //reviso para cada potencia
 	//solo llevo 4 numeros
 	int a[4] = {0, 1}; //inicializo los primeros dos 
 	for (int i = 2; i <= maxN; ++i) {
-		a[i&3] = a[(i+3)&3] + a[(i+2)&3];
+		a[i&3] = a[(i+3)&3] + a[(i+2)&3]; //esta es una forma de usar solo 4 slots de memoria tenga en cuenta que &3 es modulo 4
 		a[i&3] &= (1<<k)-1; //saco modulo 2^k
 		if (a[i&3] == 1 and a[(i+3)&3] == 0) { //veo si los dos ultimos son 0, 1 (de ahi se repetira)
 			cout << k << " " << i-1 << endl; //encontre un ciclo!
@@ -126,3 +126,4 @@ m, longitud del ciclo
 20 1572864
 ```
 
+todos son menores a 1600000... 
