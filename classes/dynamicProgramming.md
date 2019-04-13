@@ -68,3 +68,34 @@ note tambien que esto necesariamente nos dara overflow... y es por eso que gener
 
 [10229 - Modular Fibonacci](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1170)
 
+vemos los pasos que debemos seguir para darle solucion:
+
+##### observacion del problema:
+
+En este problema nos piden hallar fibonacci de n modulo 2^m, nos van a dar varias queries y n es un numero relativamente grande...
+
+##### observacion de detalles:
+
+2^m no es tan grande! (sacar modulo es sencillo esto se puede hacer sacando ampersand con 2^m - 1, llegue a esto usted mismo!) 
+
+##### usando conocimientos que ya conozco:
+
+este tipo de funciones lineales generalmente tienen un ciclo proporcional al modulo. hallemos con un simple programa (optimista)
+
+```cpp
+const int maxN = 1e9;
+cout << 0 << " " << 1 << endl;
+for (int k = 1; k <= 20; ++k) {
+	int a[4] = {0, 1}; 
+	for (int i = 2; i <= maxN; ++i) {
+		a[i&3] = a[(i+3)&3] + a[(i+2)&3];
+		a[i&3] &= (1<<k)-1;
+		if (a[i&3] == 1 and a[(i+3)&3] == 0) {
+			cout << k << " " << i-1 << endl;
+			break;	
+		}
+	}
+}
+```
+
+
