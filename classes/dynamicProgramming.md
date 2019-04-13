@@ -102,6 +102,7 @@ for (int k = 1; k <= 20; ++k) { //reviso para cada potencia
 tuvimos suerte, y tenemos que los ciclos son:
 
 ```cpp
+m, longitud del ciclo
 0 1
 1 3
 2 6
