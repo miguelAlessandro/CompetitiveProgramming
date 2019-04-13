@@ -43,5 +43,21 @@ denotemos el tiempo de ejecucion asi:
 
 Pero se puede hacer menos costoso? y sobretodo... sin perder precision?
 
+### Memoization, la clave de programacion dinamica.
 
+El corazon de programacion dinamica se basa en guardar todo lo que puedas necesitar, a esto
+se le llama memoization (es un tipo de caching). Como luce un algoritmo de programacion 
+dinamica usando nuestro ejemplo anterior?
+
+```cpp
+const int maxN = 1e6;
+int memo[maxN];
+bool check[maxN];
+int fibonacci(int n) {
+	if (n <= 1) return 1;
+	if (check[n]) return memo[n];
+	check[n] = 1;
+	return memo[n] = fibonacci(n-1) + fibonacci(n-2);
+}
+```
 
