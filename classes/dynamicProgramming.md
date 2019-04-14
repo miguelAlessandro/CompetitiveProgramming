@@ -61,8 +61,8 @@ int fibonacci(int n) {
 }
 ```
 
-note que para este caso solo puedo guardar hasta 1e6... (que es muchisimo mas de lo que podria usando solo recursion).
-note tambien que esto necesariamente nos dara overflow... y es por eso que generalmente nos pediran respuestas modulares.
+- note que para este caso solo puedo guardar hasta 1e6... (que es muchisimo mas de lo que podria usando solo recursion).
+- note tambien que esto necesariamente nos dara overflow... y es por eso que generalmente nos pediran respuestas modulares.
 
 #### como es que esto funciona?
 
