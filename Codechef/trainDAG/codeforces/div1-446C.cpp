@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define f(a, b, c) for (int a = b; a < c; ++a)
 using namespace std;
-const int maxN = 1e5 + 10;
+const int maxN = 3e5 + 10;
 const int mod = 1e9 + 9;
 
 int add(int a, int b) {
