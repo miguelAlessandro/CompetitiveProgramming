@@ -163,12 +163,12 @@ for (int i = 1; i <= n; ++i) {
 		);
 	}
 }
-```cpp
+```
 
 
 ## 4. Rod cutting
 
-dado una barra de longitud n y el ri de hacer
+dado una barra de longitud n y el costo ri de hacer
 cortes de tama;o pi, se desea cortarla en trozos 
 mas pequeños tal que minimiza el costo.
 
@@ -226,7 +226,7 @@ la subsecuencia creciente mas larga.
 void LIS(int pos) {
 	if (n == 0) return 0;
 	if (vis[pos]) return memo[pos];
-	int &ans = memo[pos] = LIS(pos+1);
+	int &ans = memo[pos] = 1;
 	for (int i = pos+1; i < n; ++i) {
 		if (a[pos] < a[i]) {
 			ans = max(ans, 1 + LIS(i));
@@ -236,6 +236,8 @@ void LIS(int pos) {
 	return ans;
 }
 ```
+
+nota: luego debe hallar el maximo para cada pos.
 
 esta es una solucion O(n^2), pero es la mejor?
 No! La solucion actual considera lo siguiente, 
@@ -263,7 +265,7 @@ for (int i = 1; i <= n; ++i) {
 	int lo = 0, hi = n;
 	while (lo < hi) {
 		int mid = lo + (hi - lo) / 2;
-		if (a[i] <= dp[mid]) lo = mid+1;
+		if (a[i] >= dp[mid]) lo = mid+1;
 		else hi = mid;
 	}
 	dp[lo+1] = a[i];
