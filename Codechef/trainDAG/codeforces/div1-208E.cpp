@@ -1,3 +1,11 @@
+/**
+ *	@author Miguel Mini
+ *	@tag LCA, OFFLINE, DSU
+ *	@idea
+ *			- el problema se traduce a encontrar los descendientes de un nodo a una distancia k
+ *			- esto se puede procesar con un array y una construccion de dsu desde las hojas
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 const int maxN = 1e5 + 10;
