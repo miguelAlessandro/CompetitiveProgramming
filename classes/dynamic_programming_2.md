@@ -9,6 +9,10 @@
 	una solucion recursiva y otra iterativa,
 	pero a veces se puede hacer mejores optimizaciones
 	en una solucion iterativa.
+	
+	- ver algunos conceptos de reduccion de memoria.
+	
+	- ver que un algoritmo puede tener mas de una solucion con dp.
 
 ## 1. Longest Common Subsequence
 
@@ -155,11 +159,8 @@ for (int i = 1; i <= m; ++i) dp[0][i] = i;
 for (int i = 1; i <= n; ++i) {
 	for (int j = 1; j <= m; ++j) {
 		dp[i][j] = min(
-			editDistance(i-1, j-1) + s[i-1] != t[j-1],
-			min(
-				editDistance(i-1, j) + 1,
-				editDistance(i, j-1) + 1
-			)
+			dp[i-1, j-1] + s[i-1] != t[j-1],
+			min(dp[i-1][j], dp[i][j-1]) + 1
 		);
 	}
 }
@@ -179,7 +180,7 @@ int rodCutting(int n) {
 	int &ans = memo[n] = INT_MAX;
 	for (int i = 0; i < m; ++i) {
 		if (n >= p[i]) {
-			ans = min(ans, r[i] + rodCutting(n-i));
+			ans = min(ans, r[i] + rodCutting(n-p[i]));
 		}
 	}
 	vis[n] = 1;
@@ -207,15 +208,27 @@ otra solucion iterativa:
 dp[0] = 0;
 for (int i = 1; i <= n; ++i) dp[i] = 1e9;
 for (int i = 0; i < m; ++i)	
-	for (int j = n; j >= p[i]; --j) {
-		dp[j] = min(dp[j], dp[j-p[i]]);
+	for (int j = p[i]; j <= n; ++j) {
+		dp[j] = min(dp[j], dp[j-p[i]] + r[i]);
 	}
 }
 ```
 
 ejercicio: pruebe que en el anterior codigo
-no da lo mismo si el segundo for no es decreciente.
+no da lo mismo si el segundo for es decreciente.
 
+ejercicio 2: pruebe que con un for decreciente
+es cuando consideramos que cada corte se puede 
+hacer una vez.
+
+nota: es muy importante resaltar que se podria
+utilizar dos arrays en vez de uno y con los mismos
+resultados [link](https://codeforces.com/blog/entry/19809?#comment-246366),
+pero, si no es asi, una genial tecnica es la que estamos usando
+aca, pero OJO ese dp tiene los estados del anterior calculo 
+y los del nuevo! y todos mezclados! el reto siempre cuando
+se usa poca memoria es saber como recorrerla para
+que se actualize de formar ordenada.
 
 ## 5. Longest Increasing subsequence.
 
@@ -242,21 +255,43 @@ nota: luego debe hallar el maximo para cada pos.
 esta es una solucion O(n^2), pero es la mejor?
 No! La solucion actual considera lo siguiente, 
 la mayor subsecuencia creciente comienza en esta 
-posicion o en la siguiente... 
+posicio, se utiliza solo la informacion de elementos
+que estan mas adelante y que son mayores, pero
+no mas...
+
+Para solucionar esto se puede reformular que es
+lo que mantiene mi dp.
 
 Nueva formulacion: sea dp[k] igual al menor
 elemento final de una subsecuencia creciente
-con k elementos. Entonces, construimos agregando
-un elemento a la vez, al inicio dp[0] = -INF y 
-dp[i] = INF, para i > 0. luego al agregar el 
-primer elemento dp[0] = -INF, dp[1] = a[1],
+con k elementos (de todos los IS con k elementos,
+cual el menor final que puede haber). Entonces, 
+construimos agregando un elemento a la vez, 
+(este tipo de soluciones recibe el nombre de 
+constructivas) al inicio dp[0] = -INF y 
+dp[i] = INF, para i > 0 (no parece muy obvio,
+pero en terminos simples, siempre existe una
+subsequencia con 0 elementos, asi que la definimos
+con ultimo termino -INF, porque de esa se puede
+construir siempre una secuencia de longitud 1,
+CON CUALQUIER ELEMENTOS. por lo demas no existe
+una secuencia de longitud >= 1 al inicio asi que
+podria decir que termina en INF por que no se puede
+construir otra a patir de una de ellas). luego 
+al agregar el primer elemento dp[0] = -INF, dp[1] = a[1],
 dp[i] = INF para i > 1. Continuamos de esa
 forma, luego al agregar el elemento a[k],
 lo que haremos es buscar el mayor elemento
-en dp[i] tal que dp[i] < a[k], luego dp[i+1] = a[k].
+en dp[i] tal que dp[i] < a[k] (y ahi apilamos
+este elemento, como es el mayor dp[i+1] >= a[k]), 
+y por tanto en este momento dp[i+1] = a[k], es claro
+por que es el mejor final para una secuencia de i+1 elementos.
 
 ejercicio. pruebe que dp[i] es creciente. (asuma que
-INF < INF es verdadero). 
+INF < INF es verdadero).
+
+ejercicio 2. vea que el siguiente algoritmo utiliza el hecho de
+que dp sea creciente para hacer un algoritmo O(nlogn)
 
 ```cpp
 for (int i = 1; i <= n; ++i) dp[i] = INF;
@@ -272,7 +307,7 @@ for (int i = 1; i <= n; ++i) {
 }
 ```
 ejercicio. es posible usar la minima cantidad
-de elementos en dp?
+de elementos en dp (igual a la longitud del LIS, con un vector quizas)?
 
 nota: vea que la solucion es el indice del ultimo
 elemento diferente de INF.
