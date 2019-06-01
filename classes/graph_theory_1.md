@@ -96,7 +96,7 @@ responder si existe un nodo con out-deg n-1 e in-deg 0.
 
 #### 4. depth-first search:
 
-El algoritmo de busqueda pro profundidad es sin duda una de los algoritmos
+El algoritmo de busqueda por profundidad es sin duda una de los algoritmos
 mas simples en teoria de grafos pero, al mismo tiempo uno de los terriblemente
 mas poderosos, quizas el que revela mas informacion de la que a simple vista
 parece sobre la estructura del mismo. 
@@ -128,10 +128,60 @@ void dfs(int v) {
 }
 ```
 
-#### 5. Lecturas recomendadas:
+#### 5. Breadth-first search
+
+El algoritmo de busqueda por amplitud va eligiendo los nodos
+mas cercano en cada ocasion, esto se puede ver como que va recorriendo
+circulos concentricos con un radio mayor cada vez:
+
+Este algoritmo usa una cola, asegurandose que el siguiente
+nivel de radio se revise en orden.
+
+Implementacion para listas de adjacencia O(V + E)
+```cpp
+void bfs(int x) {
+  queue<int> Q;
+  vis[x] = 1;
+  Q.push(x);
+  while (not Q.empty()) {
+    int q = Q.front(); Q.pop();
+    for (int v : g[q]) {
+      if (not vis[v]) {
+        vis[v] = 1;
+        Q.push(v);
+      }}
+  }
+}
+```
+
+Implementacion para matriz de adjacencia O(V^2)
+```cpp
+void bfs(int x) {
+  queue<int> Q;
+  vis[x] = 1;
+  Q.push(x);
+  while (not Q.empty()) {
+    int q = Q.front(); Q.pop();
+    for (int v = 1; v <= n; ++v) {
+      if (g[q][v] and not vis[v]) {
+        vis[v] = 1;
+        Q.push(v);
+      }}
+  }
+}
+```
+
+
+#### 6. Lecturas recomendadas:
 
 - [csacademy - introduction to graphs](https://csacademy.com/lesson/introduction_to_graphs/)
 
 - [csacademy - graph representation](https://csacademy.com/lesson/graph_representation/)
 
 - [csacademy - depth-first search](https://csacademy.com/lesson/depth_first_search/)
+
+- [csacademy - breadth-first search](https://csacademy.com/lesson/breadth_first_search/)
+
+#### 7. contest:
+
+
