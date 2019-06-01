@@ -184,4 +184,6 @@ void bfs(int x) {
 
 #### 7. contest:
 
+https://vjudge.net/contest/303020
+
 
