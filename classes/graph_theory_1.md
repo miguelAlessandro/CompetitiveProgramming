@@ -186,4 +186,10 @@ void bfs(int x) {
 
 https://vjudge.net/contest/303020
 
+#### 8. Agregar al sheet:
 
+1. https://community.topcoder.com/stat?c=problem_statement&pm=14205
+2. https://community.topcoder.com/stat?c=problem_statement&pm=14844
+3. https://community.topcoder.com/stat?c=problem_statement&pm=14888
+4. https://community.topcoder.com/stat?c=problem_statement&pm=15108
+5. https://community.topcoder.com/stat?c=problem_statement&pm=15295
