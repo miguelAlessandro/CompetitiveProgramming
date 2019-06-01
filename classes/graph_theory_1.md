@@ -128,12 +128,10 @@ void dfs(int v) {
 }
 ```
 
+#### 5. Lecturas recomendadas:
 
+- [csacademy - introduction to graphs](https://csacademy.com/lesson/introduction_to_graphs/)
 
+- [csacademy - graph representation](https://csacademy.com/lesson/graph_representation/)
 
-
-
-
-
-
-
+- [csacademy - depth-first search](https://csacademy.com/lesson/depth_first_search/)
