@@ -1,4 +1,4 @@
-#Brute Force: Partitions
+# Brute Force: Partitions
 
 usted esta en medio de una competencia, quedan pocos minutos\... y lee el
 siguiente problema: 
