@@ -1,3 +1,22 @@
+/**
+ *	@id		: Atcoder103-arc-D  
+ *	@name	: Robot Arms
+ *	@author	: Miguel Mini
+ *	@tags	: math, constructive
+ *	@idea	: 
+ *			- let k = #U_i + #D_i + #R_i + #L_i corresponding to point (x_i, y_i)
+ *			we know than x_i + y_i == #U - #D + #R - #L = k - 2 (#D + #L) 
+ *			both (x_i + y_i) and k have the same parity. 
+ *			- if we use values {2^0, ..., 2^j} (proof by induction), we obtain
+ *			every possible point (x, y) with x+y odd and |x| + |y| <= 2^{j+1} - 1.
+ *
+ *			solution: if exist solution, use the ordered set (2^0, ..., 2^30) 
+ *			or (2^0, ..., 2^30, 2^0), depending of parity, and build solution 
+ *			in backward method. For odd we know than |x_i| + |y_i| <= 2^31 - 1 
+ *			and solution exist, therefore we can look |x'_i| + |y'_i| <= 2^30 - 1,
+ *			and so on. similarly for even.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 const int maxN = 1010;
