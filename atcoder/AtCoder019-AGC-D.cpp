@@ -6,12 +6,12 @@
  *	- if B = 0..0 then A = 0..0 necesary
  *	- else:
  *		- fix final position, then
- *		- if A[i] != B[i] is necesary 
- *		- take closer 1 to left or right
+ *		- if A[i] != B[i] is necessary 
+ *		- take closer 1 to left or right.
  *		- fix r to right shift, let l = max(distance to left 1) of
- *		- indices with distance to right 1 
+ *		- indices with distance to right 1, 
  *		- greater to r, then the answer  
- *		- with this r, is 2*(max(r, d) + max(l, -d)) - abs(d).		
+ *		- with this r is 2*(max(r, d) + max(l, -d)) - abs(d).		
  */
 
 #include <bits/stdc++.h>
