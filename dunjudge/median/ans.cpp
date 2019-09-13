@@ -1,3 +1,23 @@
+/**
+ *	@name IOI 00-median
+ *	@author Miguel Mini
+ *	@tags randomized
+ *	@idea:	
+ *		- Given two different elements a, b, we can know 
+ *		which are in between (M), closer to the first (L), 
+ *		closer to the second (R) just seeing how the medium 
+ *		changes.
+ *		- if len(L) or len(R) are equals to floor(n/2), then
+ *		a or b, respectively, are the median.
+ *		- without loss of generality, be len(L) > len(R), if 
+ *		len(L) > floor(n/2) the medium is in L, in this case 
+ *		we partition L randomly. Let L = Y b2 x, set L = R + 
+ *		b + M, M = Y, b = b2, R = X. in other case, we partition
+ * 		M randomly, len M = Y b2 X, if len(R) + X > n/2, X
+ *		contain the median, then set M = X, a = b2, L = L + a + Y.
+ *		in other case set M = Y, R = R + X + b, b = b2.
+ */
+
 #include <bits/stdc++.h>
 #include "device.h"
 using namespace std;
