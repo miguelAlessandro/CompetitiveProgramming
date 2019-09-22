@@ -1,3 +1,18 @@
+/**
+ *	@name 10807 PRIM
+ *	@author Miguel Mini
+ *	@tag mst, greedy
+ *	@idea:
+ *		- If there is an answer
+ *		one of the two trees 
+ *		shares edges with the
+ *		original mst, otherwise
+ *		I can replace some of 
+ *		them with the original
+ *		mst. this is a O(m x 2^n 
+ *		x \alpha(n)) solution.
+ */
+
 #include <bits/stdc++.h>
 #define all_elements_in(vect) begin(vect), end(vect)
 using namespace std; 
