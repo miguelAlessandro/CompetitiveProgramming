@@ -1,3 +1,20 @@
+/**
+ *	@name avici2
+ *	@author Miguel Mini
+ *	@tag bfs
+ *	@idea	
+ *		1.- note that we need find 
+ *		the x in the range [diameter/4, 
+ *		diameter]
+ *
+ *		2.- every node different has 
+ *		excentricity greater than or equal 
+ *		to diameter / 2 and less than or 
+ *		equal to the diameter. 
+ *
+ *		3.- run bfs from any node and find
+ *		its excentricity
+ */
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 21002;
