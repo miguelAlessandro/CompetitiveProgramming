@@ -1,3 +1,21 @@
+/**
+ *	@name cow hopscotch
+ *	@author Miguel Mini
+ *	@tag dp, BIT
+ *	@idea
+ *			- we can solve it with the 
+ *			sum of solutions for the 
+ *			previous rows minus the 
+ *			contribution of the same color.
+ *
+ *			- as the amount of memory 
+ *			affects the execution time, 
+ *			we can compress the lists only 
+ *			in the columns that each 
+ *			color appears, having O(nm)
+ * 		of memory.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 755;
