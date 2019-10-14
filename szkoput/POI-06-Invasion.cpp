@@ -24,7 +24,7 @@
  *			the current sum.
  *
  *		note: to avoid precision error, instead of
- *		compate angles we can look sign of cross 
+ *		compare angles we can look sign of cross 
  *		product.
  */
 
