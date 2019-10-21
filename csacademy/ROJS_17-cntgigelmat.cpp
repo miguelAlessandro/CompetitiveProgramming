@@ -23,14 +23,14 @@
 using namespace std;
 const int maxn = 2010;
 int n, m;
-int mat[maxn][maxn];
-int L[maxn][maxn];
-int R[maxn][maxn];
-int D[maxn][maxn];
-int U[maxn][maxn];
-int acc[maxn][maxn];
-int ft[2 * maxn][maxn];
-vector<int> adj[maxn][maxn];
+short mat[maxn][maxn];
+short L[maxn][maxn];
+short R[maxn][maxn];
+short D[maxn][maxn];
+short U[maxn][maxn];
+short acc[maxn][maxn];
+short ft[2 * maxn][maxn];
+vector<short> adj[maxn][maxn];
 const int O = maxn;
 
 void update(int idx, int pos, int v) {
@@ -51,11 +51,14 @@ int query(int idx, int pos) {
 	return ans;
 }
 
+char s[maxn];
+
 int main() {
 	scanf("%d %d", &n, &m);
 	for (int i = 0; i < n; ++i) {
+		scanf("%s", s);
 		for (int j = 0; j < m; ++j) {
-			scanf("%1d", mat[i]+j);
+			mat[i][j] = s[j] - '0';
 		}
 	}
 	for (int i = 0; i < n; ++i) {	
