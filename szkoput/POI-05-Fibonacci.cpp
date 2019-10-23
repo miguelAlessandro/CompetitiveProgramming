@@ -60,7 +60,6 @@ int main() {
 	}
 	while (n >= 1 and a[n-1] == 0) a.pop_back(), n -= 1;
 	cout << n << " ";
-	for (int i = 0; i < n; ++i) cout << a[i] << " ";
-	cout << endl;
+	for (int i = 0; i < n; ++i) cout << a[i] << " "; cout << endl;
 	return 0;
 }
