@@ -1,3 +1,14 @@
+/**
+ *  @name PI 2005 Fibonacci
+ *  @author Miguel Mini
+ *  @tag constructive
+ *  @idea
+ *	- add two numbers and erase 
+ *	  very 2, and later every 1.
+ *
+ *	- see the book Looking for a challenge.
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 1e6 + 10;
