@@ -8,14 +8,14 @@
  *				position move them to 
  *				finish quickly.
  *
- *				dist(w) = max(1 + dist(l))
+ *				dist(l) = max(1 + dist(w))
  *
  *				* the horses in a winning 
  *				position move them to 
  *				finish slowly to a losing 
  *				position
  *
- *				dist(l) = min(1 + dist(w))
+ *				dist(w) = min(1 + dist(l))
  *
  *			- with this strategy if 
  *			a player has 
