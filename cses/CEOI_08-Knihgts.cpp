@@ -141,7 +141,7 @@ int main() {
 		if (win_lose(x, y)) dw = max(dw, dist(x, y));
 		else dl = max(dl, dist(x, y));
 	}
-	if (dw > dl) {
+	if (dw > dl or (dw == dl and dw%2 == 1)) {
 		cout << "YES" << endl;
 		for (int i = 0; i < m; ++i) {		
 			int x = P[i].first, y = P[i].second;
