@@ -7,7 +7,7 @@
  *
  *			- to solve range update in l and l+1
  *			fib(k), fib(k+1) too in r and r+1
- *			fib(r-l+k+1), fib(r-l+k). to solve
+ *			-fib(r-l+k+1), -fib(r-l+k). to solve
  *			go over positions i from left to right
  *			and update i+1 and i+2 with value in i.
  */
