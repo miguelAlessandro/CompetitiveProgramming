@@ -23,14 +23,14 @@
  *		reduce a inversion
  * 
  *		proof: suppose a sequence
- *		with 2n elements where two 
+ *		with 2n elements in wich two 
  *		consecutive elements are different
- *		and k first elements are differents
+ *		and k first elements are different
  *		and k is maximum, then the element
  *		k+1 is different to element k and necesary
  *		is equal to some element in the first
  *		k-1 elements. then we only need
- *		swap these until we put together this
+ *		swap these until we put together these
  *		elements.
  * 
  *		complexity: O(n + m) m: maximum number
