@@ -15,26 +15,29 @@
  *		swap between these.
  * 
  *		moreover, a swap can 
- *  	reduce at most an inversion.
+ *  		reduce at most an inversion.
  * 
  *		and the dificult part: 
  *		if exist an inversion 
  *		always exist a swap that 
  *		reduce a inversion
  * 
- *		proof: suppose a sequence
- *		with 2n elements in wich two 
- *		consecutive elements are different
- *		and k first elements are different
- *		and k is maximum, then the element
- *		k+1 is different to element k and necesary
- *		is equal to some element in the first
- *		k-1 elements. then we only need
- *		swap these until we put together these
- *		elements.
+ *		Proof: Consider a sequence 
+ *		with 2n elements in which 
+ *		any two consecutive elements 
+ *		are different, the first k 
+ *		elements are different and k 
+ *		is maximum possible. Then, 
+ *		the elements (k+1) and k 
+ *		are different and the element 
+ *		(k+1) is necessarily equal 
+ *		to some element in the first 
+ *		(k-1) elements. Then, we only 
+ *		need to swap these elements 
+ *		until we put them together.
  * 
- *		complexity: O(n + m) m: maximum number
- *		of swaps.
+ *		complexity: O(n + m) m: maximum 
+ *		number of swaps.
  */
 
 #include <bits/stdc++.h>
