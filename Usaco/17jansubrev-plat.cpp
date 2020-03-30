@@ -1,3 +1,13 @@
+/**
+ *	@name USACO 2017 January, Platinum | P3 Subsequence Reversal
+ *	@author Miguel Mini
+ *	@tag dp, memory_compression
+ *	@idea:
+ *			- we can make a naive dp problem
+ *			with 4 parameters, we can reduce
+ *			the memory using distance how 
+ *			compress parameter.
+**/
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 51;
