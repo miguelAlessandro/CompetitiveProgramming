@@ -132,7 +132,7 @@ vector<llong> to_erase[maxn];
 void update(int root, int x, int block) {
 	vis[x] = 1;
 	for (auto v : to_erase[x]) {
-		candidates.erase(candidates.lower_bound(x));
+		candidates.erase(candidates.lower_bound(v));
 	}
 	for (auto node : g[x]) {
 		if (x == root and node.v == block) { 
