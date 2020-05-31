@@ -1,6 +1,6 @@
 /**
  * @author Miguel Mini
- * @tag dp on trees, connect componnet approach, lca optimization
+ * @tag dp on trees, connect componen approach, lca optimization
  * @idea
  *      - lca optimization aplication.
  *
